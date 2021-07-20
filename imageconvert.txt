@@ -1,0 +1,16 @@
+import cv2
+import numpy as np
+filename = '2.jpg'
+img = cv2.imread(filename)
+cv2.imwrite('img.jpg',img)
+ih, iw, _ = img.shape
+black = np.zeros((ih + 300, iw + 300, 3), np.uint8)
+cv2.imwrite('black.jpg',black)
+bh, bw, _ = black.shape
+pts_src = np.array([[0.0, 0.0],[float(iw), 0.0],[float(iw), float(ih)],[0.0,float(ih)]])
+pts_dst = np.array([[bw * 0, 0],[bw * 1, 0.0],[float(bw) * 0.75, float(bh)],[bw * 0.25,float(bh)]])
+h, status = cv2.findHomography(pts_src, pts_dst)
+im_out = cv2.warpPerspective(img, h, (black.shape[1],black.shape[0]))
+cv2.imwrite("im_outImage.jpg", im_out)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
