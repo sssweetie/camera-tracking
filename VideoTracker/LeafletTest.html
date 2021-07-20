@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Tracking</title>
+      <link rel = "stylesheet" href = "http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/>
+      <script src = "http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+   </head>
+   
+   <body>
+      <div id = "map" style = "width: 2000px; height: 1000px"></div>
+      <script>
+          ////////////////////////////////////////////////////////////////////////////////////Настройка карты//////////////////////////////////////////////////////////////////////////////////////////////////////////
+         // Creating map options
+         var mapOptions = {
+            center: [55.753605, 37.621094],
+            zoom: 17
+         }
+         // Creating a map object
+         var map = new L.map('map', mapOptions);
+         
+         // Creating a Layer object
+         var layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+         
+         // Adding layer to the map
+         map.addLayer(layer);
+         
+         ////////////////////////////////////////////////////////////////////////////////////Создание треков//////////////////////////////////////////////////////////////////////////////////////////////////////////
+         // Creating latlng object
+         var latlang = [
+            [[55.754665, 37.619886], [55.754694, 37.619606], [55.754750, 37.619441]],
+
+            [[55.754382, 37.619182], [55.754437, 37.619316],[55.754539, 37.619120]],
+
+            [[55.754758, 37.619016], [55.754796, 37.618814],[55.754744, 37.618819]],
+
+            [[55.754811, 37.618628], [55.754723, 37.619208],[55.754574, 37.619099]],
+
+            [[55.754589, 37.619513], [55.754528, 37.619415],[55.754750, 37.619089]],
+
+            [[55.754522, 37.619130], [55.754779, 37.619099],[55.754682, 37.618825]],
+         ];
+         
+         // Creating poly line options
+         var multiPolyLineOptions = {color:'red'};
+         
+         // Creating multi poly-lines
+         var multipolyline = L.multiPolyline(latlang , multiPolyLineOptions);
+         
+         // Adding multi poly-line to map
+        multipolyline.addTo(map);
+
+        ////////////////////////////////////////////////////////////////////////////////////Создание зоны покрытия камеры///////////////////////////////////////////////////////////////////////////////////////////
+        // Creating latlng object
+        var latlang = [
+            [[55.754888, 37.618394], [55.754177, 37.6192131], [55.754674, 37.620134]]
+         ];
+         // Creating multi polygon options
+         var multiPolygonOptions = {color:'green', weight:8};
+         
+         // Creating multi polygons
+         var multipolygon = L.multiPolygon(latlang , multiPolygonOptions);
+         
+         // Adding multi polygon to map
+         multipolygon.addTo(map);
+
+         
+      </script>
+   </body>
+   
+</html>

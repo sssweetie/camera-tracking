@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>Video Tracker</title>
+        <link href="./CSS/main.css" rel="stylesheet" />
+        <link rel="shortcut icon" href="camera.ico" type="image/x-icon">
+    </head>
+    <body>
+        <h1 class="header">Video Tracker</h1>
+        <div class="input_button">
+            <button type="button">
+                <h2>Загрузить видео</h2>
+            </button>
+        </div>
+        <div class="videos">
+            <div class="first_video">
+                <h2>Пример видео</h2>
+                <div class="video-box">
+                    <iframe src="D:/VS Code/VideoTracker/Videos/test.mp4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                    </iframe>
+                </div> 
+            </div>
+            <div class="second_video">
+                <h2>Обработанное видео</h2>
+                <div class="video-box">
+                    <iframe src="D:/VS Code/VideoTracker/Videos/test_worked.mp4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                    </iframe>
+                </div> 
+            </div>
+        </div>
+        <div class="work_buttons">
+            <button type="button">
+                <h2>Обработать видео</h2>
+            </button>
+            <button class="maps" type="button" onclick="window.open('LeafletTest.html')">
+                <h2>Отображение на карте</h2>
+            </button>
+        </div>
+    </body>
+</html>
